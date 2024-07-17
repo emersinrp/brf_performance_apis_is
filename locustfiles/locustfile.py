@@ -24,10 +24,11 @@ class APITasks(TaskSet):
     }
 
     def log_request(self, response, name, payload=None):
+        response_time = response.elapsed.total_seconds()
         if response.status_code == 200:
-            logger.info(f"Success: {name} | Status Code: {response.status_code}")
+            logger.info(f"Success: {name} | Status Code: {response.status_code} | Response Time: {response_time}s | URL: {response.url}")
         else:
-            logger.error(f"Failure: {name} | Status Code: {response.status_code} | URL: {response.url} | Payload: {payload} | Response: {response.text}")
+            logger.error(f"Failure: {name} | Status Code: {response.status_code} | Response Time: {response_time}s | URL: {response.url} | Payload: {payload} | Response: {response.text}")
 
     @task
     def person_account_souk(self):
