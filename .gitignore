@@ -1,5 +1,6 @@
 __pycache__/
 venv_brf_performance_apis_is/
+env_apis_is/
 helpers/__pycache__
 locustfiles/__pycache__
 locust_requests.log
