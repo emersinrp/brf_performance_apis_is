@@ -1,20 +1,11 @@
-import logging
-from locust import HttpUser, TaskSet, task, between
 import os
+from locust import HttpUser, TaskSet, task, between
 from dotenv import load_dotenv
 from helpers.payloads import person_account_souk_payload
 from helpers.utils import get_random_top_skip
+from helpers.logging_rules import logger
 
-# Configuração do logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
-logger = logging.getLogger(__name__)
-
-# Adicionar um handler para escrever em um arquivo
-file_handler = logging.FileHandler('locust_requests.log')
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s'))
-logger.addHandler(file_handler)
-
+# Carregar variáveis do arquivo .env
 load_dotenv()
 
 class APITasks(TaskSet):
