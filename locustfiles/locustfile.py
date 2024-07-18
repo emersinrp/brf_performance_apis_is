@@ -5,7 +5,6 @@ from helpers.payloads import person_account_souk_payload
 from helpers.utils import get_random_top_skip
 from helpers.logging_rules import logger
 
-# Carregar variáveis do arquivo .env
 load_dotenv()
 
 class APITasks(TaskSet):
